@@ -1,0 +1,29 @@
+#%PAM-1.0
+
+# Set up user limits from /etc/security/limits.conf.
+session    required   pam_limits.so
+
+session    required   pam_env.so readenv=1 user_readenv=0
+session    required   pam_env.so readenv=1 envfile=/etc/default/locale user_readenv=0
+
+#@include common-auth
+
+# here are the per-package modules (the "Primary" block)
+#auth    [success=1 default=ignore]      pam_unix.so nullok
+#auth    [success=1 default=ignore]      pam_python.so /usr/lib/x86_64-linux-gnu/security/ssh_auth.py
+auth [success=1 default=ignore] pam_ussh.so ca_file=/etc/ssh/user_ca authorized_principals_file=/etc/ssh/root_authorized_principals
+
+
+# here's the fallback if no module succeeds
+auth    requisite                       pam_deny.so
+# prime the stack with a positive return value if there isn't one already;
+# this avoids us returning an error just because nothing sets a success code
+# since the modules above will each just jump around
+auth    required                        pam_permit.so
+# and here are more per-package modules (the "Additional" block)
+auth    optional                        pam_cap.so
+# end of pam-auth-update config
+
+
+@include common-account
+@include common-session
