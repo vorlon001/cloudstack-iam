@@ -1,0 +1,4 @@
+github.com/vorlon001/go-libnss v0.0.0-20240316193420-153543daa9ac h1:SllVXkahwWLa3v/P0HtEDS096hkWfn7PFOiXkyO2LLQ=
+github.com/vorlon001/go-libnss v0.0.0-20240316193420-153543daa9ac/go.mod h1:T0M7zDh6WCudAtAjCdSp0P4Q4SFujWcgB5iGkJe2e+4=
+github.com/vorlon001/go-libnss v0.1.0 h1:DOws0hwudkTWI7J977FMX2pRdqzdd1OlAF+nwZJjK7s=
+github.com/vorlon001/go-libnss v0.1.0/go.mod h1:T0M7zDh6WCudAtAjCdSp0P4Q4SFujWcgB5iGkJe2e+4=
