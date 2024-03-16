@@ -1,0 +1,5 @@
+.go
+
+# Ignore build artifacts
+*.so
+*.h
